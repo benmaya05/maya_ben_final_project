@@ -2,6 +2,10 @@
 '''Sources:
 1. https://github.com/slxmmy999/InfiniteBaseballGrid
 2. https://www.immaculategrid.com/basketball/mens
+
+code from Chris Bradfield's tutorials
+content from kids can code: http://kidscancode.org/blog/
+https://github.com/kidscancode/pygame_tutorials/tree/master/platform
 '''
 
 # Title: Immaculate Grid: Countries Edition
@@ -12,7 +16,9 @@
 '''
 
 import pygame as pg
+from pygame.sprite import Sprite
 from fpsettings import *
+from fpsprites import *
 import os
 
 game_folder = os.path.dirname(__file__)
@@ -30,9 +36,32 @@ class Game:
     
     def new(self):
         # create a group for all sprites
-        self.bgimage = pg.image.load(os.path.join(img_folder, 'benmaya_immgrid_bg.png')).convert()
+        self.bgimage = pg.image.load(os.path.join(img_folder, '3x3grid.jpg')).convert()
         '''code above is part of what allowed me to get my custom made background into the game
         credit: https://www.askpython.com/python-modules/pygame-looping-background '''
+        self.all_spirtes = pg.sprite.Group()
+        
+
+        self.run()
+    '''this code below "runs" the game... all the updates, time, sprites, images''' 
+    def run(self):
+        self.playing = True
+        while self.playing:
+            self.clock.tick(FPS)
+            self.events()
+            # self.update() (not quite using this yet..)
+            self.draw()
+
+    # def update(self):
+        
+    def events(self):
+        for event in pg.event.get():
+        # check for closed window
+            if event.type == pg.QUIT:
+                if self.playing:
+                    self.playing = False
+                self.running = False
+
     def show_start_screen(self):
             pass
     def show_go_screen(self):
@@ -40,11 +69,7 @@ class Game:
     def draw(self):
         self.screen.blit(self.bgimage, (0,0))
         '''drawing the bacckground image I introduced earlier in this code
-        credit: https://www.askpython.com/python-modules/pygame-looping-background'''
-        # draw all sprites
-        self.all_sprites.draw(self.screen)
-        self.draw_text("Score: " + str(self.score), 22, WHITE, WIDTH/2, HEIGHT/10)
-        '''these two lines above help display the score'''
+        credit: https://www.askpython.com/python-modules/pygame-looping-background'''    
         # buffer - after drawing everything, flip display
         pg.display.flip()    
     

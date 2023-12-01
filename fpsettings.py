@@ -1,8 +1,8 @@
 # This file was created by: Ben Maya on 11/16/2023
 
 # game settings
-WIDTH = 800
-HEIGHT = 800
+WIDTH = 360
+HEIGHT = 360
 FPS = 30
 
 # define colors

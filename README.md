@@ -1,40 +1,43 @@
 # maya_ben_final_project
 
-Simple overview of use/purpose:
+SIMPLE OVERVIEW:
 Immaculate Grid-esq game for the countries of the world
 
-Description
+DESCRIPTION:
 An in-depth paragraph about your project and overview of use.
 
-Getting Started
-Dependencies
+DEPENDENCIES:
 Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 ex. Windows 10
-Installing
+
+INSTALLING:
 How/where to download your program
 Any modifications needed to be made to files/folders
-Executing program
+
+EXECUTING PROGRAM:
 How to run the program
 Step-by-step bullets
 code blocks for commands
-Help
+
+HELP:
 Any advise for common problems or issues.
 
 command to run if program contains helper info
 
-Authors
+AUTHORS:
 Contributors names and contact info:
 
 Ben Maya
 
-Version History
+VERSION HISTORY:
 0.2
 Various bug fixes and optimizations
 See commit change or See release history
 0.1
 Initial Release
-License
+
+LICENSE:
 This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
 
-Acknowledgments
+ACKNOWLEDGEMENTS:
 Inspiration, code snippets, etc. * awesome-readme * PurpleBooth * dbader * zenorocha * fvcproductions

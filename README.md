@@ -1,8 +1,7 @@
 # maya_ben_final_project
 
-Fall2023_final_project
 Simple overview of use/purpose:
-Creating an immaculate grid (for countries)
+Immaculate Grid-esq game for the countries of the world
 
 Description
 An in-depth paragraph about your project and overview of use.
@@ -22,11 +21,11 @@ Help
 Any advise for common problems or issues.
 
 command to run if program contains helper info
-Authors
-Contributors names and contact info
 
-ex. Dominique Pizzie
-ex. @DomPizzie
+Authors
+Contributors names and contact info:
+
+Ben Maya
 
 Version History
 0.2

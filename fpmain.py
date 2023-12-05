@@ -79,7 +79,7 @@ class Game:
         '''drawing the bacckground image I introduced earlier in this code
         credit: https://www.askpython.com/python-modules/pygame-looping-background'''    
         # buffer - after drawing everything, flip display
-        self.draw_text("READ ME", 22, WHITE, WIDTH/2, HEIGHT/10)
+        self.draw_text("Country in Africa", 10, BLACK, WIDTH/2, HEIGHT/10)
         pg.display.flip()   
     
 g = Game()

@@ -36,7 +36,7 @@ class Game:
     
     def new(self):
         # create a group for all sprites
-        self.bgimage = pg.image.load(os.path.join(img_folder, '3x3grid.jpg')).convert()
+        self.bgimage = pg.image.load(os.path.join(img_folder, 'benmaya_3x3gridfinal.png')).convert()
         '''code above is part of what allowed me to get my custom made background into the game
         credit: https://www.askpython.com/python-modules/pygame-looping-background '''
         self.all_spirtes = pg.sprite.Group()
@@ -81,6 +81,9 @@ class Game:
         # buffer - after drawing everything, flip display
         self.draw_text("Country in Africa", 12, BLACK, 74, 4)
         self.draw_text("World Cup Winner", 12, BLACK, 181, 4)
+        self.draw_text("Island Nation", 12, BLACK, 286, 4)
+        i = "fsdih"
+        self.draw_text(i, 12, BLACK, 50, 50)
         pg.display.flip()   
     
 g = Game()

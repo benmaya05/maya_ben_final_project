@@ -51,6 +51,14 @@ class Game:
             self.events()
             # self.update() (not quite using this yet..)
             self.draw()
+    
+    def draw_text(self, text, size, color, x, y):
+            font_name = pg.font.match_font('arial')
+            font = pg.font.Font(font_name, size)
+            text_surface = font.render(text, True, color)
+            text_rect = text_surface.get_rect()
+            text_rect.midtop = (x,y)
+            self.screen.blit(text_surface, text_rect)
 
     # def update(self):
         
@@ -71,7 +79,8 @@ class Game:
         '''drawing the bacckground image I introduced earlier in this code
         credit: https://www.askpython.com/python-modules/pygame-looping-background'''    
         # buffer - after drawing everything, flip display
-        pg.display.flip()    
+        self.draw_text("READ ME", 22, WHITE, WIDTH/2, HEIGHT/10)
+        pg.display.flip()   
     
 g = Game()
 while g.running:

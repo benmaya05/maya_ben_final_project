@@ -20,6 +20,7 @@ from pygame.sprite import Sprite
 from fpsettings import *
 from fpsprites import *
 import os
+import random
 
 game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, 'images')
@@ -84,7 +85,51 @@ class Game:
         self.draw_text("Island Nation", 20, BLACK, 630, 6)
         self.draw_text("Red in Flag", 20, BLACK, 160, 110)
         self.draw_text("English is an Official Language", 19, BLACK, 110, 270)
-        pg.display.flip()   
+        self.draw_text("Has a 'Wonder of the World'", 20, BLACK, 110, 440)
+        pg.display.flip()  
+    
+'''
+# Source for creating buttons: https://medium.com/@01one/how-to-create-clickable-button-in-pygame-8dd608d17f1b
+    button_surface = pg.Surface((160, 160))
+    pg.draw.rect(button_surface, (0, 0, 0),(0, 0, 100, 50))
+    # pg.draw.text(button_surface, "Click Me!", (25, 25), (255, 255, 255))
+
+    # Create a pygame.Rect object that represents the button's boundaries
+    button_rect = pg.Rect(0, 0, 100, 50)
+
+    # Create a pygame.event.MOUSEBUTTONDOWN event handler that checks if the mouse is clicked inside the button's boundaries
+    def on_mouse_button_down(event):
+        if event.type == pg.MOUSEBUTTONDOWN and event.button == 1 and button_rect.collidepoint(event.pos):
+            print("Button clicked!")
+
+    button_rect = pg.Rect(0, 0, 100, 50)
+    def on_mouse_button_down(event):
+        if event.type == pg.MOUSEBUTTONDOWN and event.button == 1 and button_rect.collidepoint(event.pos):
+            print("Button clicked!")
+    
+    # Call the pygame.display.update() function to display the button on the screen
+    pg.display.update()
+
+# Start the main loop
+    while True:
+    # Get events from the event queue
+        for event in pg.event.get():
+        # Check for the quit event
+         if event.type == pg.QUIT:
+            # Quit the game
+            pg.quit()
+            sys.exit()
+
+        # Check for the mouse button down event
+        if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
+            # Call the on_mouse_button_down() function
+            on_mouse_button_down(event)
+
+    # Update the game state
+
+    # Draw the game screen
+    pygame.display.update()
+   '''
     
 g = Game()
 while g.running:

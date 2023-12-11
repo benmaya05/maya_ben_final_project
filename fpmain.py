@@ -96,7 +96,20 @@ class Game:
         self.draw_text("Red in Flag", 20, BLACK, 160, 110)
         self.draw_text("English is an Official Language", 19, BLACK, 110, 270)
         self.draw_text("Has a 'Wonder of the World'", 20, BLACK, 110, 440)
-        pg.display.flip()  
+        self.all_sprites.draw(self.screen)
+        pg.display.flip()
+'''
+TRYING TO USE RPS TO HELP ME BUILD A BUTTON
+    def collide(x,y,obj,w,h):
+    if x < obj.pos()[0] + w/2 and x > obj.pos()[0] -  w/2 and y < obj.pos()[1] + h/2 and y > obj.pos()[1] - h/2:
+        return True
+    else:
+        return False
+    def mouse_pos(x, y):
+# this code runs when ROCK is chosen
+    if collide (x,y,):
+        print("it is " + str(collide(x,y,rock_instance,rock_w,rock_h)) + " that I collided with rock")'''
+  
     
 g = Game()
 while g.running:

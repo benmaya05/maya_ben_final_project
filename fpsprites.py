@@ -1,5 +1,10 @@
 # This file was created by: Ben Maya on 12/1/2023
 
+import pygame as pg
+from pygame.sprite import Sprite
+import os
+from fpsettings import *
+
 # https://www.britannica.com/topic/list-of-countries-1993160
 
 countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
@@ -43,3 +48,16 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
             "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia",
             "Zimbabwe"
              ]
+
+# Platforms
+class Platform(Sprite):
+    def __init__(self, x, y, w, h):
+        '''category can be either moving or normal'''
+        Sprite.__init__(self)
+        self.image = pg.Surface((w, h))
+        '''self.image = pg.image.load(os.path.join(img_folder, 'maya_ben_mainpy_lavaplat.png')).convert()
+        originally where I tried to import my custom platform image... but this ruined the groun platform'''
+        self.image.fill(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y

@@ -62,12 +62,18 @@ class Platform(Sprite):
         self.index = 0
         '''self.image = pg.image.load(os.path.join(img_folder, 'maya_ben_mainpy_lavaplat.png')).convert()
         originally where I tried to import my custom platform image... but this ruined the groun platform'''
-        # self.image.fill(BLACK)
-        self.image.set_alpha(0)
+        # https://www.pygame.org/docs/ref/font.html used this for everything below
+        self.image.fill(WHITE)
+        FONT = pg.font.SysFont('Arial', 20)
+        textsurface = FONT.render(countries[self.index], True, BLACK)
+        self.image.blit(textsurface,(0,0))
+        #self.image.set_alpha(0)
+        
         # https://www.pygame.org/docs/ref/surface.html#pygame.Surface.set_colorkey helped me make it transparent!!
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        
       
 # https://www.geeksforgeeks.org/how-to-create-buttons-in-a-game-using-pygame/
 
@@ -76,6 +82,14 @@ class Platform(Sprite):
             mouse = pg.mouse.get_pos()
             if(self.x <= mouse[0] <= self.x+self.w and self.y <= mouse[1] <=self.y+self.h):
                 self.index+=1
+                self.image = pg.Surface((self.w, self.h))
+                self.image.fill(WHITE)
+                FONT = pg.font.SysFont('Arial', 20)
+                textsurface = FONT.render(countries[self.index], True, BLACK)
+                self.image.blit(textsurface,(0,0))
+                self.rect = self.image.get_rect()
+                self.rect.x = self.x
+                self.rect.y = self.y
                 print(countries[self.index])
 
         

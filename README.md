@@ -41,6 +41,8 @@ LICENSE:
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ACKNOWLEDGEMENTS:
+Alex Manens
+
 Sources:
 https://github.com/slxmmy999/InfiniteBaseballGrid
 https://www.immaculategrid.com/basketball/mens

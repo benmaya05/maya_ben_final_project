@@ -41,16 +41,16 @@ LICENSE:
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ACKNOWLEDGEMENTS:
-Alex Manens
-
 Sources:
-https://github.com/slxmmy999/InfiniteBaseballGrid
 https://www.immaculategrid.com/basketball/mens
 https://medium.com/@01one/how-to-create-clickable-button-in-pygame-8dd608d17f1b
+https://www.pygame.org/news
+https://www.geeksforgeeks.org/
 
 Code from Chris Bradfield's tutorials. Content from kids can code: 
 http://kidscancode.org/blog/
 https://github.com/kidscancode/pygame_tutorials/tree/master/platform
 
 Mr. Chris Cozort
+Mr. Alex Manens
 Intro. to Computer Programming (S1; P1) Table 02 Group Members

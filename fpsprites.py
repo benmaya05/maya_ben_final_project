@@ -52,7 +52,6 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
 # Platforms
 class Platform(Sprite):
     def __init__(self, x, y, w, h):
-        '''category can be either moving or normal'''
         Sprite.__init__(self)
         self.image = pg.Surface((w, h))
         self.x = x
@@ -60,14 +59,12 @@ class Platform(Sprite):
         self.w = w
         self.h = h
         self.index = 0
-        '''self.image = pg.image.load(os.path.join(img_folder, 'maya_ben_mainpy_lavaplat.png')).convert()
-        originally where I tried to import my custom platform image... but this ruined the groun platform'''
         # https://www.pygame.org/docs/ref/font.html used this for everything below
         self.image.fill(WHITE)
         FONT = pg.font.SysFont('Arial', 20)
         textsurface = FONT.render(countries[self.index], True, BLACK)
         self.image.blit(textsurface,(0,0))
-        #self.image.set_alpha(0)
+
         
         # https://www.pygame.org/docs/ref/surface.html#pygame.Surface.set_colorkey helped me make it transparent!!
         self.rect = self.image.get_rect()

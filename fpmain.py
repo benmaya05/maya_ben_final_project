@@ -97,7 +97,7 @@ class Game:
         self.draw_text("Island Nation", 20, BLACK, 630, 6)
         self.draw_text("Red in Flag", 20, BLACK, 160, 110)
         self.draw_text("English is an Official Language", 19, BLACK, 110, 270)
-        self.draw_text("Has a 'Wonder of the World'", 20, BLACK, 110, 440)
+        self.draw_text("Has a Nobel Peace Prize Winner", 18, BLACK, 110, 440)
         self.all_sprites.draw(self.screen)
         pg.display.flip()
 

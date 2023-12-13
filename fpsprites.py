@@ -14,10 +14,10 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
             "Bolivia", "Bosnia and Herzegovina", "Bostwana", "Brazil", "Brunei"
             "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
             "Cameroon", "Canada", "Central African Republic", "Chad", "Chile",
-            "China", "Colombia", "Comoros", "Democratic Republic of the Congo", "Republic of the Congo",
+            "China", "Colombia", "Comoros", "DR Congo", "Republic of the Congo",
             "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus",
             "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
-            "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea",
+            "East Timor", "Ecuador", "Egypt", "El Salvador", "England", "Equatorial Guinea",
             "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji",
             "Finland", "France", "Gabon", "The Gambia", "Georgia",
             "Germany", "Ghana", "Greece", "Grenada", "Guatemala",
@@ -48,6 +48,51 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
             "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia",
             "Zimbabwe"
              ]
+
+# here are the possible answers:
+'''
+Box 1: Algeria, Angola, Benin, Burkina Faso, Burundi, 
+        Cameroon, Central African Republic, Cape Verde, Chad, Comoros, 
+        DR Congo, Republic of Congo, Djibouti, Egypt, Equatorial Guinea, 
+        Eritrea, Eswatini, Ethiopia, Gambia, Ghana, 
+        Guinea, Guinea-Bissau, Kenya, Liberia, Libya, 
+        Madagascar, Mali, Malawi, Mauritania, Mauritius, 
+        Morocco, Mozambique, Namibia, Sao Tome and Principe, Senegal, 
+        Seychelles, South Africa, Sudan, South Sudan, Togo, 
+        Tunisia, Uganda, Zambia, Zimbabwe
+
+Box 2: England, France, Germany, Italy, Spain
+
+Box 3: Antigua and Barbuda, Bahrain, Brunei, Cape Verde, Comoros, 
+        Cuba, Dominica, Dominican Republic, East Timor, Fiji, 
+        Grenada, Haiti, Iceland, Indonesia, Japan, 
+        Kiribati, Madagascar, Maldives, Malta, Mauritius, 
+        New Zealand, Papua New Guinea, Philippines, Saint Kitts and Nevis, Samoa, 
+        Sao Tome and Principe, Seychelles, Singapore, Sri Lanka, Tonga, 
+        Trinidad and Tobago, Tuvalu, United Kingdom, Vanuatu, Taiwan
+
+Box 4: Botswana, Burundi, Cameroon, Eswatini, Gambia, 
+        Ghana, Kenya, Lesotho, Liberia, Malawi, 
+        Namibia, Nigeria, Rwanda, Seychelles, Sierra Leone, 
+        South Africa, Sudan, South Sudan, Tanzania, Uganda, 
+        Zambia, Zimbabwe
+
+Box 5: England
+
+Box 6: Antigua and Barbuda, Australia, Bahamas, Barbados, Dominica, 
+        Fiji, Grenada, Ireland, Jamaica, Kiribati, 
+        Marshall Islands, Micronesia, Nauru, New Zealand, Palau, 
+        Papua New Guinea, Philippines, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, 
+        Samoa, Seychelles, Solomon Islands, Tonga, Trinidad and Tobago, 
+        Tuvalu, Vanuatu
+
+Box 7: DR Congo, Egypt, Ethiopia, Ghana, Kenya, 
+        Liberia, South Africa, Tunisia,
+
+Box 8: Argentina, France, Germany, Italy
+
+Box 9: Ireland, Japan, Philippines
+'''
 
 # Platforms
 class Platform(Sprite):

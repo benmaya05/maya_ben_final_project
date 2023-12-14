@@ -10,7 +10,7 @@ from fpsettings import *
 countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
             "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
             "Azerbaijan", "The Bahamas", "Bahrain", "Bangladesh", "Barbados",
-            "Belarus", "Belgium", "Belize", "Benin", "Bhutan"
+            "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
             "Bolivia", "Bosnia and Herzegovina", "Bostwana", "Brazil", "Brunei",
             "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
             "Cameroon", "Canada", "Central African Republic", "Chad", "Chile",
@@ -50,17 +50,41 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
              ]
 
 # here are the possible answers:
-'''
-Box 1: Algeria, Angola, Benin, Burkina Faso, Burundi, 
-        Cameroon, Central African Republic, Cape Verde, Chad, Comoros, 
-        DR Congo, Republic of Congo, Djibouti, Egypt, Equatorial Guinea, 
-        Eritrea, Eswatini, Ethiopia, Gambia, Ghana, 
-        Guinea, Guinea-Bissau, Kenya, Liberia, Libya, 
-        Madagascar, Mali, Malawi, Mauritania, Mauritius, 
-        Morocco, Mozambique, Namibia, Sao Tome and Principe, Senegal, 
-        Seychelles, South Africa, Sudan, South Sudan, Togo, 
-        Tunisia, Uganda, Zambia, Zimbabwe
 
+box = [["Algeria", "Angola", "Benin", "Burkina Faso", "Burundi", 
+        "Cameroon", "Central African Republic", "Cape Verde", "Chad", "Comoros", 
+        "DR Congo", "Republic of Congo", "Djibouti", "Egypt", "Equatorial Guinea", 
+        "Eritrea", "Eswatini", "Ethiopia", "Gambia", "Ghana", 
+        "Guinea", "Guinea-Bissau", "Kenya", "Liberia", "Libya", 
+        "Madagascar", "Mali", "Malawi", "Mauritania", "Mauritius", 
+        "Morocco", "Mozambique", "Namibia", "Sao Tome and Principe", "Senegal", 
+        "Seychelles", "South Africa", "Sudan", "South Sudan", "Togo", 
+        "Tunisia", "Uganda", "Zambia", "Zimbabwe"],
+        ["England", "France", "Germany", "Italy", "Spain"],
+        ["Antigua and Barbuda", "Australia", "Bahrain", "Brunei", "Cape Verde", "Comoros", 
+        "Cuba", "Dominica", "Dominican Republic", "East Timor", "Fiji", 
+        "Grenada", "Haiti", "Iceland", "Indonesia", "Japan", 
+        "Kiribati", "Madagascar", "Maldives", "Malta", "Mauritius", 
+        "New Zealand", "Papua New Guinea", "Philippines", "Saint Kitts and Nevis", "Samoa", 
+       " Sao Tome and Principe", "Seychelles", "Singapore", "Sri Lanka", "Tonga", 
+        "Trinidad and Tobago", "Tuvalu", "United Kingdom", "Vanuatu", "Taiwan"],
+        ["Botswana", "Burundi", "Cameroon", "Eswatini", "Gambia", 
+        "Ghana", "Kenya", "Lesotho", "Liberia", "Malawi", 
+        "Namibia", "Nigeria", "Rwanda", "Seychelles", "Sierra Leone", 
+        "South Africa", "Sudan", "South Sudan", "Tanzania", "Uganda", 
+        "Zambia", "Zimbabwe"],
+        ["England"],
+        ["Antigua and Barbuda", "Australia", "Bahamas", "Barbados", "Dominica", "England", 
+        "Fiji", "Grenada", "Ireland", "Jamaica", "Kiribati", 
+        "Marshall Islands", "Micronesia", "Nauru", "New Zealand", "Palau", 
+        "Papua New Guinea", "Philippines", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
+        "Samoa", "Seychelles", "Solomon Islands", "Tonga", "Trinidad and Tobago", 
+        "Tuvalu", "Vanuatu"],
+        ["DR Congo", "Egypt", "Ethiopia", "Ghana", "Kenya", 
+        "Liberia", "South Africa", "Tunisia"],
+        ["Argentina", "France", "Germany", "Italy"],
+        ["Ireland", "Japan", "Philippines"]]
+'''
 Box 2: England, France, Germany, Italy, Spain
 
 Box 3: Antigua and Barbuda, Bahrain, Brunei, Cape Verde, Comoros, 
@@ -87,7 +111,7 @@ Box 6: Antigua and Barbuda, Australia, Bahamas, Barbados, Dominica,
         Tuvalu, Vanuatu
 
 Box 7: DR Congo, Egypt, Ethiopia, Ghana, Kenya, 
-        Liberia, South Africa, Tunisia,
+        Liberia, South Africa, Tunisia
 
 Box 8: Argentina, France, Germany, Italy
 
@@ -96,13 +120,15 @@ Box 9: Ireland, Japan, Philippines
 
 # Platforms
 class Platform(Sprite):
-    def __init__(self, x, y, w, h):
+    def __init__(self, x, y, w, h, answer):
         Sprite.__init__(self)
         self.image = pg.Surface((w, h))
         self.x = x
         self.y = y
         self.w = w
         self.h = h
+        self.correct = False
+        self.answer = answer
         self.index = 0
         # https://www.pygame.org/docs/ref/font.html used this for everything below
         self.image.fill(WHITE)
@@ -132,7 +158,13 @@ class Platform(Sprite):
                 self.rect = self.image.get_rect()
                 self.rect.x = self.x
                 self.rect.y = self.y
+                if(countries[self.index] in self.answer):
+                    self.correct = True
+                else:
+                    self.correct = False
                 print(countries[self.index])
+    def checkCorrect(self):
+        return self.correct
 
         
         

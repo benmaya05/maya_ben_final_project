@@ -35,6 +35,7 @@ class Game:
         pg.display.set_caption("My Game...")
         self.clock = pg.time.Clock()
         self.running = True
+        self.allcorrect = False
     
     def new(self):
         # create a group for all sprites
@@ -43,11 +44,13 @@ class Game:
         credit: https://www.askpython.com/python-modules/pygame-looping-background '''
         self.all_sprites = pg.sprite.Group()
         self.all_platforms = pg.sprite.Group()
+        i = 0
         for p in PLATFORM_LIST:
             # instantiation of the Platform class
-            plat = Platform(*p)
+            plat = Platform(*p,box[i])
             self.all_sprites.add(plat)
             self.all_platforms.add(plat)
+            i+=1
         
 
         self.run()
@@ -57,6 +60,7 @@ class Game:
         while self.playing:
             self.clock.tick(FPS)
             self.events()
+
             # self.update() (not quite using this yet..)
             self.draw()
 
@@ -75,13 +79,22 @@ class Game:
         
     def events(self):
         for event in pg.event.get():
-            for sprites in self.all_sprites:
-                 sprites.update(event)
-        # check for closed window
+            if event.type == pg.MOUSEBUTTONDOWN:
+                for sprites in self.all_sprites:
+                    sprites.update(event)
+                correct = []
+                for sprites in self.all_sprites:
+                    correct.append(sprites.checkCorrect())
+                if not False in correct:
+                    self.allcorrect = True
+                else: 
+                    self.allcorrect = False
+            # check for closed window
             if event.type == pg.QUIT:
                 if self.playing:
                     self.playing = False
                 self.running = False
+
 
     def show_start_screen(self):
             pass
@@ -98,6 +111,8 @@ class Game:
         self.draw_text("Red in Flag", 20, BLACK, 160, 110)
         self.draw_text("English is an Official Language", 19, BLACK, 110, 270)
         self.draw_text("Has a Nobel Peace Prize Winner", 18, BLACK, 110, 440)
+        if self.allcorrect:
+            self.draw_text("Winner", 18, GREEN, 100, 10)
         self.all_sprites.draw(self.screen)
         pg.display.flip()
 

@@ -11,7 +11,7 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
             "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
             "Azerbaijan", "The Bahamas", "Bahrain", "Bangladesh", "Barbados",
             "Belarus", "Belgium", "Belize", "Benin", "Bhutan"
-            "Bolivia", "Bosnia and Herzegovina", "Bostwana", "Brazil", "Brunei"
+            "Bolivia", "Bosnia and Herzegovina", "Bostwana", "Brazil", "Brunei",
             "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
             "Cameroon", "Canada", "Central African Republic", "Chad", "Chile",
             "China", "Colombia", "Comoros", "DR Congo", "Republic of the Congo",

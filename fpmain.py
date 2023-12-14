@@ -35,14 +35,15 @@ class Game:
         pg.display.set_caption("My Game...")
         self.clock = pg.time.Clock()
         self.running = True
+        # code below allows player to distinguish when their anwsers are wrong or right
         self.allcorrect = False
     
     def new(self):
         # create a group for all sprites
         self.bgimage = pg.image.load(os.path.join(img_folder, 'benmaya_3x3gridfinal.png')).convert()
-        '''code above is part of what allowed me to get my custom made background into the game
-        credit: https://www.askpython.com/python-modules/pygame-looping-background '''
+        # had to create a grid with extra space to fit the categories on the screen
         self.all_sprites = pg.sprite.Group()
+        # platforms have the function of "buttons" for this game
         self.all_platforms = pg.sprite.Group()
         i = 0
         for p in PLATFORM_LIST:
@@ -50,32 +51,29 @@ class Game:
             plat = Platform(*p,box[i])
             self.all_sprites.add(plat)
             self.all_platforms.add(plat)
+            # this differentiates each platform/button/sqare in grid from the other ones... there are 9 squares not 1
             i+=1
         
 
         self.run()
-    '''this code below "runs" the game... all the updates, time, sprites, images''' 
+    # this code below "runs" the game... all the updates, time, sprites, images''' 
     def run(self):
         self.playing = True
         while self.playing:
             self.clock.tick(FPS)
             self.events()
-
-            # self.update() (not quite using this yet..)
             self.draw()
-
     def update(self):
         self.all_sprites.update()
-    
     def draw_text(self, text, size, color, x, y):
+            # define the function and give it different attributes
+            # allows me to display text on my screen
             font_name = pg.font.match_font('arial')
             font = pg.font.Font(font_name, size)
             text_surface = font.render(text, True, color)
             text_rect = text_surface.get_rect()
             text_rect.midtop = (x,y)
             self.screen.blit(text_surface, text_rect)
-
-    # def update(self):
         
     def events(self):
         for event in pg.event.get():
@@ -95,7 +93,6 @@ class Game:
                     self.playing = False
                 self.running = False
 
-
     def show_start_screen(self):
             pass
     def show_go_screen(self):
@@ -104,20 +101,20 @@ class Game:
         self.screen.blit(self.bgimage, (0,0))
         '''drawing the bacckground image I introduced earlier in this code
         credit: https://www.askpython.com/python-modules/pygame-looping-background'''    
-        # buffer - after drawing everything, flip display
+        # had to display all the categories around the 3x3 grid... used self.draw_text function
         self.draw_text("Country in Africa", 20, BLACK, 300, 6)
         self.draw_text("World Cup Winner", 20, BLACK, 465, 6)
         self.draw_text("Island Nation", 20, BLACK, 630, 6)
         self.draw_text("Red in Flag", 20, BLACK, 160, 110)
         self.draw_text("English is an Official Language", 19, BLACK, 110, 270)
         self.draw_text("Has a Nobel Peace Prize Winner", 18, BLACK, 110, 440)
+        # if all the player's answers are correct... "YOU WON" text will be displayed in top-left
         if self.allcorrect:
-            self.draw_text("Winner", 18, GREEN, 100, 10)
+            self.draw_text("YOU WON", 18, GREEN, 100, 20)
         self.all_sprites.draw(self.screen)
         pg.display.flip()
+        # buffer - after drawing everything, flip display
 
-  
-    
 g = Game()
 while g.running:
     g.new()

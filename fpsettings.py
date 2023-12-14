@@ -12,6 +12,8 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
+# list of all platforms(functioning as buttons)
+# each platform fills one of the 9 squares of the grid entirely
 PLATFORM_LIST = [(230, 50, 150, 150),
                  (390, 50, 150, 150),
                  (550, 50, 150, 150),

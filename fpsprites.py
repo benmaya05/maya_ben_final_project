@@ -5,8 +5,10 @@ from pygame.sprite import Sprite
 import os
 from fpsettings import *
 
-# https://www.britannica.com/topic/list-of-countries-1993160
+# used this for list of countries: https://www.britannica.com/topic/list-of-countries-1993160 
+# (had to add England which isn't technically a country)
 
+# typed/inputted all possible countries (answers)
 countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
             "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
             "Azerbaijan", "The Bahamas", "Bahrain", "Bangladesh", "Barbados",
@@ -50,7 +52,9 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
              ]
 
 # here are the possible answers:
-
+#  used a lot of different Wikipedia (https://www.wikipedia.org/) pages to help find all possible correct answers
+# box is a list of lists... a list of all 9 squares in the grid and also a list of each possible correct answer for each square
+# typed inputted all correct countries/answers
 box = [["Algeria", "Angola", "Benin", "Burkina Faso", "Burundi", 
         "Cameroon", "Central African Republic", "Cape Verde", "Chad", "Comoros", 
         "DR Congo", "Republic of Congo", "Djibouti", "Egypt", "Equatorial Guinea", 
@@ -84,41 +88,9 @@ box = [["Algeria", "Angola", "Benin", "Burkina Faso", "Burundi",
         "Liberia", "South Africa", "Tunisia"],
         ["Argentina", "France", "Germany", "Italy"],
         ["Ireland", "Japan", "Philippines"]]
-'''
-Box 2: England, France, Germany, Italy, Spain
-
-Box 3: Antigua and Barbuda, Bahrain, Brunei, Cape Verde, Comoros, 
-        Cuba, Dominica, Dominican Republic, East Timor, Fiji, 
-        Grenada, Haiti, Iceland, Indonesia, Japan, 
-        Kiribati, Madagascar, Maldives, Malta, Mauritius, 
-        New Zealand, Papua New Guinea, Philippines, Saint Kitts and Nevis, Samoa, 
-        Sao Tome and Principe, Seychelles, Singapore, Sri Lanka, Tonga, 
-        Trinidad and Tobago, Tuvalu, United Kingdom, Vanuatu, Taiwan
-
-Box 4: Botswana, Burundi, Cameroon, Eswatini, Gambia, 
-        Ghana, Kenya, Lesotho, Liberia, Malawi, 
-        Namibia, Nigeria, Rwanda, Seychelles, Sierra Leone, 
-        South Africa, Sudan, South Sudan, Tanzania, Uganda, 
-        Zambia, Zimbabwe
-
-Box 5: England
-
-Box 6: Antigua and Barbuda, Australia, Bahamas, Barbados, Dominica, 
-        Fiji, Grenada, Ireland, Jamaica, Kiribati, 
-        Marshall Islands, Micronesia, Nauru, New Zealand, Palau, 
-        Papua New Guinea, Philippines, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, 
-        Samoa, Seychelles, Solomon Islands, Tonga, Trinidad and Tobago, 
-        Tuvalu, Vanuatu
-
-Box 7: DR Congo, Egypt, Ethiopia, Ghana, Kenya, 
-        Liberia, South Africa, Tunisia
-
-Box 8: Argentina, France, Germany, Italy
-
-Box 9: Ireland, Japan, Philippines
-'''
 
 # Platforms
+# creates a Platform(button) class
 class Platform(Sprite):
     def __init__(self, x, y, w, h, answer):
         Sprite.__init__(self)
@@ -128,24 +100,25 @@ class Platform(Sprite):
         self.w = w
         self.h = h
         self.correct = False
+        # new attribution to the platform class (answer)
         self.answer = answer
         self.index = 0
         # https://www.pygame.org/docs/ref/font.html used this for everything below
         self.image.fill(WHITE)
+        # this code allows me to display the countries on the platforms
         FONT = pg.font.SysFont('Arial', 20)
         textsurface = FONT.render(countries[self.index], True, BLACK)
         self.image.blit(textsurface,(0,0))
-
-        
+        # above I used blit... similar to how the background is displayed
         # https://www.pygame.org/docs/ref/surface.html#pygame.Surface.set_colorkey helped me make it transparent!!
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        
-      
-# https://www.geeksforgeeks.org/how-to-create-buttons-in-a-game-using-pygame/
 
+    # https://www.geeksforgeeks.org/how-to-create-buttons-in-a-game-using-pygame/
+    # help from my buddy Alex Manens here
     def update(self, event):
+        # if player clicks on any platform, the next country in the index is displayed
         if event.type == pg.MOUSEBUTTONDOWN:
             mouse = pg.mouse.get_pos()
             if(self.x <= mouse[0] <= self.x+self.w and self.y <= mouse[1] <=self.y+self.h):
@@ -155,6 +128,7 @@ class Platform(Sprite):
                 FONT = pg.font.SysFont('Arial', 20)
                 textsurface = FONT.render(countries[self.index], True, BLACK)
                 self.image.blit(textsurface,(0,0))
+                # 3 lines of code above allows for the new text to be displayed in each square
                 self.rect = self.image.get_rect()
                 self.rect.x = self.x
                 self.rect.y = self.y

@@ -52,5 +52,7 @@ http://kidscancode.org/blog/
 https://github.com/kidscancode/pygame_tutorials/tree/master/platform
 
 Mr. Chris Cozort
+
 Mr. Alex Manens
+
 Intro. to Computer Programming (S1; P1) Table 02 Group Members

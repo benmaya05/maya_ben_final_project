@@ -77,9 +77,11 @@ class Game:
         
     def events(self):
         for event in pg.event.get():
+            # if platform/button is clicked... code below updates all sprites
             if event.type == pg.MOUSEBUTTONDOWN:
                 for sprites in self.all_sprites:
                     sprites.update(event)
+                # checks if all the current countries/answers are correct
                 correct = []
                 for sprites in self.all_sprites:
                     correct.append(sprites.checkCorrect())

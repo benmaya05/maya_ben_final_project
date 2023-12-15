@@ -119,10 +119,12 @@ class Platform(Sprite):
     # help from my buddy Alex Manens here
     def update(self, event):
         # if player clicks on any platform, the next country in the index is displayed
+        # code below checks which platform is clicked on
         if event.type == pg.MOUSEBUTTONDOWN:
             mouse = pg.mouse.get_pos()
             if(self.x <= mouse[0] <= self.x+self.w and self.y <= mouse[1] <=self.y+self.h):
                 self.index+=1
+                # creates new image(platform) with the correct text on it
                 self.image = pg.Surface((self.w, self.h))
                 self.image.fill(WHITE)
                 FONT = pg.font.SysFont('Arial', 20)
@@ -132,11 +134,12 @@ class Platform(Sprite):
                 self.rect = self.image.get_rect()
                 self.rect.x = self.x
                 self.rect.y = self.y
+                # sets correct to True or False based off if its in the list
                 if(countries[self.index] in self.answer):
                     self.correct = True
                 else:
                     self.correct = False
-                print(countries[self.index])
+                # print(countries[self.index]) THIS WAS JUST FOR TESTING
     def checkCorrect(self):
         return self.correct
 
